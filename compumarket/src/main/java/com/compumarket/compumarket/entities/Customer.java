@@ -1,13 +1,26 @@
 package com.compumarket.compumarket.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="customer")
 public class Customer extends Person {
 	
 	//attributes
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String address;
 	private String email;
+	@OneToMany(mappedBy = "customer")
+	private List<Quote> quote; 
 	
 	//constructor
 	public Customer(String address, String email) {

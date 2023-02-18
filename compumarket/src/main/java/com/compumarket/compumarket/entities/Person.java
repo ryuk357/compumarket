@@ -1,8 +1,8 @@
 package com.compumarket.compumarket.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
 public abstract class Person {
 	//attributes
 	
