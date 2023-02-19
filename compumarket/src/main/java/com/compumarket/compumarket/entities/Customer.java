@@ -16,13 +16,15 @@ public class Customer extends Person {
 	//attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String address;
 	private String email;
 	@OneToMany(mappedBy = "customer")
-	private List<Quote> quote; 
+	private List<Quote> quotes; 
 	
 	//constructor
+	public Customer() {}
+	
 	public Customer(String address, String email) {
 		super();
 		this.address = address;
@@ -44,5 +46,13 @@ public class Customer extends Person {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public List<Quote> getQuotes() {
+		return quotes;
+	}
+	
+	public void setQuotes(List<Quote> quotes){
+		this.quotes = quotes;
 	}
 }

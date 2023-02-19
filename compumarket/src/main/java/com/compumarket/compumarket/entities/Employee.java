@@ -18,16 +18,18 @@ public class Employee extends Person {
 	//attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private boolean isAdmin;
 	@ManyToOne
 	@JoinColumn(name="employee_id")
 	private Agency agency;
 	@OneToMany(mappedBy = "employee")
-	private List<Quote> quote;
+	private List<Quote> quotes;
  	
 	
 	//constructor
+	public Employee() {}
+	
 	public Employee(boolean bool) {
 		super();
 		this.isAdmin = bool;
@@ -42,4 +44,20 @@ public class Employee extends Person {
 		this.isAdmin = isAdmin;
 	}
 	
+	public List<Quote> getQuotes(){
+		return this.quotes;
+	}
+	
+	public void setQuotes(List<Quote> quotes) {
+		this.quotes = quotes;
+	}
+	
+	public Agency getAgency() {
+		return this.agency;
+	}
+	
+	public void setAgency(Agency agency) {
+		this.agency = agency;
+	}
 }
+

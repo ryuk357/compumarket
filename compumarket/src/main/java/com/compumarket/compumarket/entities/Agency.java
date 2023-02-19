@@ -23,6 +23,7 @@ public class Agency {
     private List<Employee> employees;
 	
 	//constructor
+	public Agency() {}
 	
 	public Agency(String name, String address) {
 		this.address = address;
@@ -43,5 +44,13 @@ public class Agency {
 	
 	public void setAddress(String address) {
 		this.address = address; 
+	}
+	
+	public List<Employee> getEmployee(){
+		return this.employees;
+	}
+	
+	public void setEmployee(List<Employee> employees) {
+		this.employees = employees;
 	}
 }

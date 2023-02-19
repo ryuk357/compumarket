@@ -16,12 +16,14 @@ public class Category {
 	//attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String name;
 	@OneToMany(mappedBy = "category")
 	private List<Product> products;
 	
 	//constructor
+	public Category() {}
+	
 	public Category(String name) {
 		this.name = name;
 	}
@@ -34,4 +36,12 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }
