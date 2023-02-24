@@ -16,7 +16,7 @@ public class Customer extends Person {
 	//attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private int id;
 	private String address;
 	private String email;
 	@OneToMany(mappedBy = "customer")
@@ -32,6 +32,15 @@ public class Customer extends Person {
 	}
 	
 	//Getters & Setters
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getAddress() {
 		return this.address;
 	}
