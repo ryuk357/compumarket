@@ -6,7 +6,5 @@ import com.compumarket.compumarket.entities.Customer;
 import com.compumarket.compumarket.entities.Employee;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer>{
-
-	void save(Employee employee);
 	
 }

@@ -20,14 +20,14 @@ public class CustomerController {
 	
 	private CustomerRepository repo;
 	
-	@GetMapping("/createCustomer")
+	@GetMapping("/create")
 	public String generateForm(Model model, @PathVariable("id") int id) {
 			Customer customer = new Customer();
 			model.addAttribute("newUser", customer);
-		return "CustomeForm";
+		return "CustomerForm";
 	}
 	
-	@GetMapping("/saveCustomer")
+	@GetMapping("/save")
 	public String createCustomer(@ModelAttribute Customer customerFull, Model model) {	
 //		String redirection = ""; 
 //		if (customerFull.getId() !=0) {
@@ -44,32 +44,33 @@ public class CustomerController {
 			repo.save(customerFull);
 //			redirection = "redirect:/tp/";
 //		}
-		return "redirect:/tp/";
+		return "redirect:/";
 	}
 	
-	@GetMapping("{id}/showCustomer")
+	@GetMapping("{id}/show")
 	public String displayCustomer(Model model, @PathVariable("id")int id) {
 		Customer customerFinded = repo.findById(id).get(); 
 		Customer customer = new Customer();
-		model.addAttribute("current_user", customerFinded);
-		return "usertp";
+		model.addAttribute("current_employee", customerFinded);
+		//add route
+		return null;
 	}
 	
 	public String editCustomer() {
 		return null;
 	}
 	
-	@GetMapping("{id}/deleteCustomer")
+	@GetMapping("{id}/delete")
 	public String deleteCustomer(Model model, @PathVariable("id") int id) {
 		Customer customerFinded = repo.findById(id).get(); 
 		repo.delete(customerFinded);
 		return "redirect:/";
 	}
 	
-	@GetMapping("/showAllCustomer")
+	@GetMapping("/showAll")
 	public String allCustomer(Model model) {
-		List <Customer> allCustomer = repo.findAll();
-		model.addAttribute("customers", allCustomer);
+		List <Customer> allCustomers = repo.findAll();
+		model.addAttribute("customers", allCustomers);
 		return null;
 	}	
 	
